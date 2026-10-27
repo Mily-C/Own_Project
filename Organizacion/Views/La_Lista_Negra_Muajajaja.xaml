@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Organizacion.Views.La_Lista_Negra_Muajajaja"
+             Title="La Lista Negra">
+
+    <VerticalStackLayout Padding="15" Spacing="17.5" BackgroundColor="White">
+
+        <Border>
+            <Label Text="Quien nos debe plata?"
+               TextColor="Black"
+               FontSize="20"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center"/>
+        </Border>
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Nombre"
+                   TextColor="Black"
+                   FontSize="16"/>
+
+                <Border WidthRequest="160" StrokeShape="RoundRectangle 35" 
+                    Stroke="{StaticResource Twilight_Sparkle}">
+
+                    <Entry x:Name="Campo_Nombre_Persona"
+                       Text="{Binding Tar_Seleccionada.Name, UpdateSourceEventName=PropertyChanged}"
+                       TextColor="Black"/>
+
+                </Border>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Deuda"
+                   TextColor="Black"
+                   FontSize="16"/>
+
+                <Border StrokeShape="RoundRectangle 35" 
+                    Stroke="{StaticResource Twilight_Sparkle}">
+
+                    <Entry x:Name="Campo_Deuda"
+                       WidthRequest="160"
+                       Text="{Binding Tar_Seleccionada.Units, UpdateSourceEventName=PropertyChanged}"
+                       Keyboard="Numeric"
+                       TextColor="Black"/>
+
+                </Border>
+            </VerticalStackLayout>
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <VerticalStackLayout>
+                
+                <Label Text="Fecha"
+                       TextColor="Black"
+                       FontSize="16"/>
+
+                <Border StrokeShape="RoundRectangle 35" 
+                        Stroke="{StaticResource Twilight_Sparkle}">
+
+                    <Entry x:Name="Campo_Fecha"
+                           WidthRequest="160"
+                           Text="{Binding Tar_Seleccionada.Units, UpdateSourceEventName=PropertyChanged}"
+                           Keyboard="Numeric"
+                           TextColor="Black"/>
+                </Border>
+                
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Organizacion.Views.Inventario"
+             Title="Precios e inventario">
+    <VerticalStackLayout BackgroundColor="White" Padding="15" Spacing="17.5">
+
+        <Border StrokeShape="RoundRectangle 35" Stroke="{StaticResource Twilight_Sparkle}">
+            <SearchBar x:Name="Barra_Busqueda" 
+                   Placeholder="Buscar producto aqui"
+                   SearchIconColor="{StaticResource Swettie_Bell}"
+                   CancelButtonColor="{StaticResource Swettie_Bell}"
+                   TextColor="Black"
+                   TextChanged="SearchBar_TextChanged"/>
+        </Border>
+
+        <Label 
+            Text="Producto       Unidades       Precio        "
+            TextColor="Black"
+            FontSize="18"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"/>
+
+        <CollectionView x:Name="Mi_Lista" ItemsSource="{Binding Lista_de_Productos}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Border Margin="0,5" Padding="5" 
+                                Stroke="{StaticResource Celestia}" 
+                                StrokeShape="RoundRectangle 35" 
+                                BackgroundColor="{StaticResource Celestia}">
+
+                            <Grid ColumnDefinitions="Auto, *, *" VerticalOptions="Center" Padding="6, 1, 1, 5">
+
+                                <Label Grid.Row="0" Grid.Column="0"
+                                       WidthRequest="100"
+                                       Text="{Binding Name}"
+                                       FontSize="18"
+                                       TextColor="Black"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Justify"
+                                       LineBreakMode="WordWrap"/>
+
+                                <Label Grid.Column="1"
+                                       Text="{Binding Units}"
+                                       FontSize="18"
+                                       TextColor="Black"
+                                       HorizontalTextAlignment="Center"/>
+
+                                <Label Grid.Column="2"
+                                       Text="{Binding Price}"
+                                       FontSize="18"
+                                       TextColor="Black"
+                                       HorizontalTextAlignment="Center"/>
+
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+       
+    </VerticalStackLayout>
+</ContentPage>

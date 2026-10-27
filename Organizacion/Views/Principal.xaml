@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Organizacion.Views.Principal"
+             Title="Principal">
+    
+        <VerticalStackLayout Padding="15" Spacing="17.5" BackgroundColor="White">
+        <Border Stroke="{StaticResource Princess_Celestia}" 
+                StrokeShape="RoundRectangle 35" Padding="20" 
+                BackgroundColor="{StaticResource Celestia}">
+
+            <Grid ColumnDefinitions="Auto, *" ColumnSpacing="10" VerticalOptions="Center">
+
+                <Image Grid.Column="0"
+                       Source="conejito.png"
+                       Aspect="AspectFit"
+                       HeightRequest="100"
+                       WidthRequest="100"
+                       VerticalOptions="Center"/>
+
+                <Label Grid.Column="1"
+                        Text="Holap familia &#x0a;Bienvenidos a la aplicacion para organizar cosas de la bodega.&#x0a;&#x0a;Elige uno de los modulos para continuar"
+                        TextColor="Black"
+                        FontSize="16"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Justify"
+                        LineBreakMode="WordWrap"/>
+
+            </Grid>
+        </Border>
+        <Button  x:Name="Precios_Inventario"
+                HeightRequest="80" 
+                WidthRequest="300"
+                BackgroundColor = "{StaticResource Swettie_Bell}"
+                Text="Precios e inventario"
+                FontSize="16"
+                Clicked="Precios_Inventario_Clicked"/>
+
+
+        <Button x:Name="Lista_Negra"
+                HeightRequest="80" 
+                WidthRequest="300"
+                BackgroundColor = "{StaticResource Swettie_Bell}"
+                Text="Lista de personas que deben"
+                Clicked="Lista_Negra_Clicked"/>
+
+        <Button x:Name="Edicion_Inventario"
+                HeightRequest="80" 
+                WidthRequest="300"
+                BackgroundColor = "{StaticResource Swettie_Bell}"
+                Text="Modificacion del inventario"
+                Clicked="Edicion_Inventario_Clicked"/>
+
+    </VerticalStackLayout>
+    
+</ContentPage>

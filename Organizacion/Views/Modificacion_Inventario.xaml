@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Organizacion.Views.Modificacion_Inventario"
+             Title="Modificacion de Inventario">
+    <VerticalStackLayout BackgroundColor="White" Padding="15" Spacing="17.5">
+        <Label
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" VerticalOptions="Center" Padding="6, 1, 1, 5">
+            
+            <Label Grid.Row="0" Grid.Column="0"
+                   Text="Nombre"
+                   TextColor="Black"
+                   FontSize="16"/>
+
+            <Border Grid.Row="1" 
+                    WidthRequest="350" Grid.Column="0" StrokeShape="RoundRectangle 35" Stroke="{StaticResource Twilight_Sparkle}">
+                <Entry x:Name="Campo_Nombre_Producto"
+                        Text="{Binding Tar_Seleccionada.Name, UpdateSourceEventName=PropertyChanged}"
+                        TextColor="Black"/>
+            </Border>
+
+            <Label Grid.Row="2" Grid.Column="0"
+                   Text="Unidades"
+                   TextColor="Black"
+                   FontSize="16"/>
+
+            <Border Grid.Row="3" StrokeShape="RoundRectangle 35" Stroke="{StaticResource Twilight_Sparkle}">
+                <Entry x:Name="Campo_Unidades_Producto"
+                        Text="{Binding Tar_Seleccionada.Units, UpdateSourceEventName=PropertyChanged}"
+                        Keyboard="Numeric"
+                        TextColor="Black"/>
+            </Border>
+
+            <Label Grid.Row="4" Grid.Column="0" 
+                   Text="Precio"
+                   TextColor="Black"
+                   FontSize="16"/>
+
+            <Border Grid.Row="5" StrokeShape="RoundRectangle 35" Stroke="{StaticResource Twilight_Sparkle}">
+                <Entry x:Name="Campo_Precio_Producto"
+                        Text="{Binding Tar_Seleccionada.Price, UpdateSourceEventName=PropertyChanged}"
+                        Keyboard="Numeric"
+                        TextColor="Black"/>
+            </Border>
+        </Grid>
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Button x:Name="Agregar"
+                    WidthRequest="100" HeightRequest="60" Margin="5"
+                    Text="Agregar"
+                    Clicked="Agregar_Clicked"/>
+            
+            <Button x:Name="Editar"
+                    WidthRequest="100" Margin="5"
+                    Text="Editar"
+                    Clicked="Editar_Clicked"/>
+            
+            <Button x:Name="Borrar"
+                    WidthRequest="100" Margin="5"
+                    Text="Borrar"
+                    Clicked="Borrar_Clicked"/>
+            
+        </HorizontalStackLayout>
+
+        <CarouselView x:Name="Carrosel_Productos"
+                      ItemsSource="{Binding Lista_de_Productos}"
+                      CurrentItem="{Binding Tar_Seleccionada, Mode=TwoWay}"
+                      HeightRequest="100"
+                      HorizontalOptions="Fill">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="{StaticResource Twilight_Sparkle}" 
+                            BackgroundColor="{StaticResource Swettie_Bell}" 
+                            StrokeShape="RoundRectangle 50">
+                        <VerticalStackLayout>
+                            <Label
+                                Text="{Binding Name}" TextColor="Black" HorizontalOptions="Center" FontSize="18"/>
+                            <Label
+                                Text="{Binding Units, StringFormat=´Uni: {0}´}" TextColor="Black" HorizontalOptions="Center" FontSize="18"/>
+                            <Label
+                                Text="{Binding Price}" TextColor="Black" HorizontalOptions="Center" FontSize="18"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <Grid ColumnDefinitions="Auto, *" ColumnSpacing="10" VerticalOptions="Center">
+            
+        <CheckBox Grid.Column="0"
+                  x:Name="Check_de_Seleccion"
+                  IsChecked="False"
+                  Color="{StaticResource Twilight_Sparkle}"/>
+
+            <Label Grid.Column="1"
+                   Text="Presiona aqui para seleccionar un producto"
+                   TextColor="Black"
+                   FontSize="16"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Justify"
+                   LineBreakMode="WordWrap"/>
+        </Grid>
+        
+    </VerticalStackLayout>
+</ContentPage>
